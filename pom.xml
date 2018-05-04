@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.salesforce.maven</groupId>
+        <artifactId>MavenParent</artifactId>
+        <version>1.0.5</version>
+    </parent>
+    <groupId>com.github.rremer</groupId>
+    <artifactId>maven-test-parent</artifactId>
+    <version>1.0.1</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <github.owner>rremer</github.owner>
+        <github.project>maven-test-parent</github.project>
+        <github.site.location>${project.version}/</github.site.location>
+        <parameter.disable.semantic.versioning>true</parameter.disable.semantic.versioning>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <version>2.8.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <configuration>
+                    <providerImplementations>
+                        <git>jgit</git>
+                    </providerImplementations>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>1.9.5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <name>CI team</name>
+            <organization>Productivity Cloud, Continuous Integration</organization>
+            <organizationUrl>https://sites.google.com/a/salesforce.com/automation</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/rremer/maven-test-parent.git</connection>
+        <developerConnection>scm:git:https://github.com/rremer/maven-test-parent.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/rremer/maven-test-parent</url>
+    </scm>
+</project>
